@@ -5,6 +5,7 @@ import createGlobe from "cobe";
 import { useSpring } from "react-spring";
 import Typewriter from "typewriter-effect";
 import "../styles/landingPage.css";
+import Link from "next/link";
 
 export default function LandingPage() {
   const canvasRef = useRef();
@@ -48,7 +49,7 @@ export default function LandingPage() {
         if (!pointerInteracting.current) {
           phi += 0.005;
         }
-        state.phi =0+r.get();
+        state.phi =phi+r.get();
         state.theta = th.get();
         state.width = width * 2;
         state.height = width * 2;
@@ -78,8 +79,8 @@ export default function LandingPage() {
       pointerStart.current = { x: e.clientX, y: e.clientY };
       if (canvasRef.current.contains(e.target)) {
         api.start({
-          r: deltaX / 5,
-          th: deltaY / 5,
+          r: deltaX / 25,
+          th: deltaY / 25,
         });
       }
     }
@@ -111,9 +112,6 @@ export default function LandingPage() {
 
   return (
     <div className="loadingPageContain">
-      <div className="bgImage">
-        <img src="https://www.pngall.com/wp-content/uploads/13/Grid-PNG-File.png" />
-      </div>
       <div className="leftLoadingPage">
         <div className="siteName">
           <Typewriter
@@ -127,19 +125,21 @@ export default function LandingPage() {
         </div>
         <div className="siteTagline">Join the Chat Scene Near You</div>
         <div>
-          <button className="btn">Continue</button>
+        <Link className='btn' href="/auth">Blog Post</Link>
         </div>
       </div>
       <div
         className="rightLoadingPage"
-        onMouseDown={handlePointerDown}
         onMouseMove={handlePointerMove}
-        onMouseUp={handlePointerUp}
+        // onMouseUp={handlePointerUp}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <canvas className="globe" ref={canvasRef} />
+        <canvas 
+        onMouseOver={handlePointerDown}
+        onMouseOut={handleTouchEnd}
+        className="globe" ref={canvasRef} />
       </div>
     </div>
   );
