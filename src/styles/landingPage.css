@@ -1,7 +1,5 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Mukta:wght@200;300;400;500;600;700;800&family=Oxanium:wght@200..800&family=Spicy+Rice&display=swap');
+
 .loadingPageContain{
     height:100vh;
     width:100vw;
@@ -43,15 +41,18 @@
 
 .siteName{
     position: relative;
+    font-family: "Mukta", sans-serif;
     font-size: 4em;
     font-weight: 800;
     color:rgb(14, 238, 14);
-    letter-spacing:0.1em;
+    letter-spacing:0.08em;
+    line-height: 2.5rem;
 }
 .siteTagline{
     position: relative;
     font-size: 2em;
     font-weight: 600;
+    font-family: "Mukta", sans-serif;
 }
 
 @media only screen and (max-width: 1150px) {
@@ -80,7 +81,7 @@
   }
 }
 .btn {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
     --border-width: 0.125em;
     --curve-size: 0.5em;
@@ -94,12 +95,13 @@
     isolation: isolate;
     display: inline-grid;
     place-content: center;
-    padding: 0.5em 1.5em;
-    font-size: 1.2rem;
+    padding: 0.3em 1.5em;
+    font-size: 1.4rem;
     font-weight: 600;
     text-decoration: none;
     letter-spacing: 0.1rem;
     border: 0;
+    font-family: "Mukta", sans-serif;
     text-transform: uppercase;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
     clip-path: polygon(
