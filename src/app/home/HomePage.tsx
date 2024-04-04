@@ -34,8 +34,8 @@ export default function HomePage() {
         setToggle(true);
     }
 
-    const joinRef = useRef();
-    const createRef = useRef();
+    const joinRef = useRef<HTMLDivElement>(null);
+    const createRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
