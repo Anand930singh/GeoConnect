@@ -1,21 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import '../../styles/home.css'
 import Typewriter from "typewriter-effect";
 import Image from 'next/image';
 import Logo from '../../assets/logo.png'
 import { LuSendHorizonal } from "react-icons/lu";
 import { IoArrowBackOutline } from "react-icons/io5";
+import Join from "@/components/join";
+import Create from "@/components/create";
 
 export default function HomePage() {
     const [chatOpend, setChatOpened] = useState(true);
     const [currentChatName, setCurrentChatName] = useState('');
     const [toggle, setToggle] = useState(false);
+    const [join, setJoin] = useState(false);
+    const [create, setCreate] = useState(false);
+    const [bgBlur, setBgBlur] = useState(false);
 
-    const setChatFunc = (status: any, value: any) => {
+    const createActive = () => {
+        setCreate(true);
+        setJoin(false);
+        setBgBlur(true);
+    }
+
+    const joinActive = () => {
+        setCreate(false);
+        setJoin(true);
+        setBgBlur(true);
+    }
+
+    const setChatFunc = (status:any, value:any) => {
         setChatOpened(status);
-        setCurrentChatName(value)
+        setCurrentChatName(value);
         setToggle(true);
     }
+
+    const joinRef = useRef();
+    const createRef = useRef();
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    const handleClickOutside = (event:any) => {
+        if (joinRef.current && !joinRef.current.contains(event.target)) {
+            setJoin(false);
+            setBgBlur(false);
+        }
+        if (createRef.current && !createRef.current.contains(event.target)) {
+            setCreate(false);
+            setBgBlur(false);
+        }
+    };
 
     return (
         <div className="homePage">
@@ -31,12 +69,12 @@ export default function HomePage() {
                         }}
                     /></div>
                 <div className="navBarOptions">
-                    <button className="createGroup">Join</button>
-                    <button className="createGroup">Create</button>
+                    <button className="createGroup" onClick={joinActive}>Join</button>
+                    <button className="createGroup" onClick={createActive}>Create</button>
                     <div className="profileCircle"></div>
                 </div>
             </div>
-            <div className="homeBody">
+            <div className={`homeBody${bgBlur ? ' blurClick' : ''}`}>
                 <div className={`listChat${toggle ? ' notshow' : ''}`}>
                     <div className="person" onClick={() => setChatFunc(true, 'Anand Kumar Singh')}>
                         <div className="profileCircleChat"></div>
@@ -79,6 +117,12 @@ export default function HomePage() {
                     </div>)
                     }
                 </div>
+            </div>
+            <div ref={joinRef}>
+                {join && (<Join />)}
+            </div>
+            <div ref={createRef}>
+                {create && (<Create />)}
             </div>
         </div>
     );

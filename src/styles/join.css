@@ -1,0 +1,67 @@
+.joinContainer {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 10;
+    width: 20%;
+    height: 30%;
+    min-width: 350px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    background: rgba(84, 125, 203, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
+    border-radius: 10px;
+    border: 1px solid rgb(10 25 42 / 84%);
+}
+.joinGroup{
+    position: relative;
+    margin-bottom: 2rem;
+    font-size: 1.7em;
+}
+.inputCode input{
+    background-color: transparent;
+    border:1px solid white;
+    height:2rem;
+    border-radius: 10px;
+    color:white;
+    text-align: center;
+}
+.joinBtn {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #00D775, #00BD68);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.3em;
+  font-weight: 600;
+  height: 44px;
+  line-height: 44px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 40%;
+  z-index: 9;
+  border: 0;
+}
+
+.joinBtn:hover {
+  background: #00bd68;
+}

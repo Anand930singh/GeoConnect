@@ -249,6 +249,9 @@
   color: white;
   font-size: 1.2em;
 }
+.blurClick{
+  filter: blur(20px);
+}
 @media only screen and (max-width: 753px) {
   .chatBox{
     border-bottom-left-radius: 24px;
