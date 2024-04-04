@@ -125,13 +125,13 @@ export default function LandingPage() {
         </div>
         <div className="siteTagline">Join the Chat Scene Near You</div>
         <div>
-        <Link className='btn' href="/auth">Blog Post</Link>
+        <Link className='btn' href="/auth">Continue</Link>
         </div>
       </div>
       <div
         className="rightLoadingPage"
         onMouseMove={handlePointerMove}
-        // onMouseUp={handlePointerUp}
+        onMouseUp={handlePointerUp}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
